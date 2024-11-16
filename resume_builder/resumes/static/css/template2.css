@@ -1,0 +1,133 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+
+  body {
+    background-color: #e9ecef;
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+    color: #444;
+  }
+
+  .container {
+    width: 850px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  /* Header Styling */
+  header {
+    background-color: #4a90e2;
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    border-bottom: 6px solid #3d7cb8;
+  }
+
+  header h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+  header p {
+    font-size: 1rem;
+    font-weight: 300;
+  }
+
+  /* Section Container */
+  .content {
+    padding: 2rem;
+  }
+
+  /* Section Title Styling */
+  section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+  }
+
+  section h2 {
+    font-size: 1.8rem;
+    color: #4a90e2;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+  }
+
+  /* Section Content Styling */
+  section p, section ul, section li {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
+  }
+
+  /* Bullet Points */
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul li::before {
+    content: '• ';
+    color: #4a90e2;
+    font-weight: bold;
+    display: inline-block; 
+    margin-right: 0.5rem;
+  }
+
+  /* Skill List */
+  .skills ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .skills li {
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 8px 12px;
+    margin: 5px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+
+  /* Contact Info */
+  .contact-info p {
+    font-size: 1rem;
+    color: #333;
+  }
+
+  .contact-info a {
+    color: #4a90e2;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease-in-out;
+  }
+
+  .contact-info a:hover {
+    color: #3d7cb8;
+    text-decoration: underline;
+  }
+
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .container {
+      width: 100%;
+    }
+
+    header h1 {
+      font-size: 2rem;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+    }
+  }

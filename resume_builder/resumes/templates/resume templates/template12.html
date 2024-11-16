@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 12 Elegant Minimal Resume</title>
+  <style>
+    /* Global Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f6f6f6;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    /* Container */
+    .container {
+      width: 100%;
+      max-width: 1000px;
+      margin: 30px auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Section */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #f1f1f1;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      font-weight: 500;
+      color: #333;
+    }
+
+    .header .contact-info {
+      text-align: right;
+      color: #777;
+    }
+
+    .header .contact-info p {
+      margin: 5px 0;
+      font-size: 14px;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: #333;
+      border-left: 4px solid #50b3a2;
+      padding-left: 12px;
+      margin-bottom: 15px;
+    }
+
+    /* Professional Summary */
+    .summary {
+      margin-bottom: 40px;
+    }
+
+    .summary p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.8;
+    }
+
+    /* Experience Section */
+    .experience {
+      margin-bottom: 40px;
+    }
+
+    .experience p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .experience h3 {
+      font-size: 18px;
+      color: #333;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .experience span {
+      color: #50b3a2;
+    }
+
+    /* Education Section */
+    .education {
+      margin-bottom: 40px;
+    }
+
+    .education p {
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .education h3 {
+      font-size: 18px;
+      color: #333;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    /* Skills Section */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skills li {
+      background: linear-gradient(145deg, #50b3a2, #4e8a7c);
+      color: #fff;
+      font-size: 14px;
+      padding: 8px 15px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Link Styling */
+    a {
+      color: #50b3a2;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header h1 {
+        font-size: 28px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .skills li {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header Section -->
+  <section class="header">
+    <div>
+      <h1>{{ name }}</h1>
+      <p>{{ data.profession }} | {{ data.experience }} years of experience</p>
+    </div>
+    <div class="contact-info">
+      <p>Email: {{ data.email }}</p>
+      <p>Phone: {{ data.phone }}</p>
+      {% if data.linkedin %}
+        <p><a href="{{ data.linkedin }}" target="_blank">LinkedIn</a></p>
+      {% endif %}
+      {% if data.github %}
+        <p><a href="{{ data.github }}" target="_blank">GitHub</a></p>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- Professional Summary -->
+  <section class="summary">
+    <div class="section-title">Professional Summary</div>
+    <p>{{ data.summary }}</p>
+  </section>
+
+  <!-- Work Experience -->
+  <section class="experience">
+    <div class="section-title">Work Experience</div>
+    <p>
+      <strong>{{ data.profession }} at {{ data.recent_company }}</strong><br>
+      <span>{{ data.recent_duration }}</span>
+    </p>
+    <p>{{ data.responsibilities }}</p>
+  </section>
+
+  <!-- Education -->
+  <section class="education">
+    <div class="section-title">Education</div>
+    <p>
+      <strong>{{ data.school_name }}</strong><br>
+      Graduation: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%
+    </p>
+    <p>
+      <strong>{{ data.college_name }}</strong><br>
+      Graduation: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills">
+    <div class="section-title">Skills</div>
+    <ul>
+      {% for skill in skills %}
+        <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Craft CV</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <div class="nav-left">
+        <ul>
+          <li class="brand">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" />Craft CV
+          </li>
+        </ul>
+      </div>
+      <div class="nav-right">
+        
+      </div>
+    </nav>
+    <div>
+      <img src="{% static 'images/image1.png' %}" class="photo" width="700" height="500" alt="About Me" />
+      <div>
+        <h3 class="head3">Welcome to</h3>
+        <h1 class="head1">Craft CV</h1>
+      </div>
+
+      <div class="paragraph">
+        <p>Let's craft your single sheet of paper which can decide your future.</p>
+      </div>
+      <div>
+        <div class="action-buttons">
+          <a href="{% url 'resume_form' %}" class="container">Craft Your CV</a><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <a href="{% url 'signup' %}" class="MyAccount">Sign Up here for free!</a><br><br><br>
+          
+
+        </div>
+        
+    </div>
+    <div id="why-us-hero"></div>
+    <div id="why-us-wrapper">
+      <div id="wu-top">
+        <h2>WHY US</h2>
+      </div>
+      <div id="wu-bottom">
+        <div style="margin-left: 0;" class="wu-card">
+          <div class="wu-card-top">
+            <!-- <img src="images/"> -->
+            <h4>Download</h4>
+            <hr />
+          </div>
+          <div class="wu-card-bottom">You can download the resume easily in the PDF and DOCS format.</div>
+        </div>
+        <div class="wu-card">
+          <div class="wu-card-top">
+            <!-- <img src="images/"> -->
+            <h4>Templates</h4>
+            <hr />
+          </div>
+          <div class="wu-card-bottom">We offer more than 3 templates.</div>
+        </div>
+        <div style="margin-right: 0;" class="wu-card">
+          <div class="wu-card-top">
+            <!-- <img src="images/"> -->
+            <h4>ATS Score Checker</h4>
+            <hr />
+          </div>
+          <div class="wu-card-bottom">You can also check the score of your Resume using AI.</div>
+        </div>
+      </div>
+    </div>
+
+   
+   
+   <script src="{% static 'js/script.js' %}"></script>
+  </body>
+</html>

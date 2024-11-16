@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 7 Modern Horizontal Resume </title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #e0e0e0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #333;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .resume-container {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+      max-width: 1200px;
+      width: 100%;
+      background: #ffffff;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      border-radius: 8px;
+    }
+
+    /* Header */
+    .header {
+      grid-column: span 2;
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #dedede;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 34px;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #666;
+      margin-top: 10px;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      padding-right: 20px;
+      border-right: 2px solid #dedede;
+    }
+
+    .section-title {
+      font-size: 20px;
+      color: #444;
+      font-weight: bold;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+    }
+
+    .contact-info p, .skills ul {
+      font-size: 15px;
+      line-height: 1.8;
+      color: #555;
+    }
+
+    .skills ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+
+    .skills ul li {
+      padding: 6px 0;
+    }
+
+    /* Main Content */
+    .summary, .job, .education-entry {
+      margin-bottom: 25px;
+    }
+
+    .summary p {
+      font-size: 17px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .job h3, .education-entry h3 {
+      font-size: 18px;
+      color: #333;
+      font-weight: bold;
+      margin-bottom: 6px;
+    }
+
+    .job p, .education-entry p {
+      font-size: 15px;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Sections */
+    .summary, .experience, .education {
+      background-color: #fafafa;
+      padding: 20px;
+      border: 1px solid #e2e2e2;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    /* Footer */
+    .footer {
+      grid-column: span 2;
+      text-align: center;
+      border-top: 2px solid #dedede;
+      padding-top: 20px;
+      margin-top: 30px;
+      font-size: 15px;
+      color: #777;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .resume-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .sidebar {
+        border: none;
+        padding: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <!-- Header -->
+    <header class="header">
+      <h1>{{ name }}</h1>
+      <p>{{ data.profession }} with {{ data.experience }} of experience | {{ data.city }}, {{ data.country }}</p>
+    </header>
+
+    <!-- Sidebar: Contact Info and Skills -->
+    <aside class="sidebar">
+      <section class="contact-info">
+        <h2 class="section-title">Contact Information</h2>
+        <p>Email: {{ data.email }}</p>
+        <p>Phone: {{ data.phone }}</p>
+        {% if data.linkedin %}
+          <p>LinkedIn: <a href="{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a></p>
+        {% endif %}
+        {% if data.github %}
+          <p>GitHub: <a href="{{ data.github }}" target="_blank">{{ data.github }}</a></p>
+        {% endif %}
+      </section>
+
+      <section class="skills">
+        <h2 class="section-title">Skills</h2>
+        <ul>
+          {% for skill in skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <section class="summary">
+        <h2 class="section-title">Professional Summary</h2>
+        <p>{{ data.summary }}</p>
+      </section>
+
+      <section class="experience">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="job">
+          <h3>{{ data.profession }} - {{ data.recent_company }}</h3>
+          <p>{{ data.recent_duration }}</p>
+          <p>{{ data.responsibilities }}</p>
+        </div>
+      </section>
+
+      <section class="education">
+        <h2 class="section-title">Education</h2>
+        <div class="education-entry">
+          <h3>{{ data.school_name }}</h3>
+          <p>Graduation Year: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+        </div>
+        <div class="education-entry">
+          <h3>{{ data.college_name }}</h3>
+          <p>Graduation Year: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+        </div>
+      </section>
+    </div>
+
+ 
+
+    </div>
+  </div>
+</body>
+</html>

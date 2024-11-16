@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Template 10 Vibrant Horizontal Resume</title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      color: #333;
+      background-color: #f3f4f6;
+    }
+
+    /* Container Styling */
+    .resume-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header Section */
+    .header {
+      background-color: #4a90e2;
+      color: #fff;
+      padding: 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .header h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+
+    .header p {
+      font-size: 18px;
+    }
+
+    .contact-info {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      text-align: right;
+    }
+
+    .contact-info p {
+      font-size: 14px;
+      color: #eaeaea;
+    }
+
+    /* Sections Styling */
+    .section {
+      padding: 40px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      color: #fff;
+    }
+
+    .summary {
+      background-color: #66bb6a;
+    }
+
+    .experience {
+      background-color: #ff7043;
+    }
+
+    .education {
+      background-color: #42a5f5;
+    }
+
+    .skills {
+      background-color: #ab47bc;
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    .section p, .section ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
+
+    /* Skills List Styling */
+    .skills-list li {
+      display: inline-block;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 10px 15px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .header h1 {
+        font-size: 32px;
+      }
+
+      .section h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="resume-container">
+  <!-- Header Section -->
+  <section class="header">
+    <div class="contact-info">
+      <p>Email: {{ data.email }}</p>
+      <p>Phone: {{ data.phone }}</p>
+      {% if data.linkedin %}
+        <p>LinkedIn: <a href="{{ data.linkedin }}" target="_blank" style="color: #eaeaea;">{{ data.linkedin }}</a></p>
+      {% endif %}
+      {% if data.github %}
+        <p>GitHub: <a href="{{ data.github }}" target="_blank" style="color: #eaeaea;">{{ data.github }}</a></p>
+      {% endif %}
+    </div>
+    <h1>{{ name }}</h1>
+    <p>{{ data.profession }} with {{ data.experience }} of experience</p>
+  </section>
+
+  <!-- Summary Section -->
+  <section class="section summary">
+    <h2>Professional Summary</h2>
+    <p>{{ data.summary }}</p>
+  </section>
+
+  <!-- Experience Section -->
+  <section class="section experience">
+    <h2>Work Experience</h2>
+    <p><strong>{{ data.profession }} at {{ data.recent_company }}</strong> - {{ data.recent_duration }}</p>
+    <p>{{ data.responsibilities }}</p>
+  </section>
+
+  <!-- Education Section -->
+  <section class="section education">
+    <h2>Education</h2>
+    <p><strong>{{ data.school_name }}</strong> - Graduation: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+    <p><strong>{{ data.college_name }}</strong> - Graduation: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+  </section>
+
+  <!-- Skills Section -->
+  <section class="section skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      {% for skill in skills %}
+        <li>{{ skill }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+</div>
+
+</body>
+</html>

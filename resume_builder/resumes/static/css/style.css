@@ -1,0 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&family=Varela+Round&display=swap');
+
+body {
+    background:rgb(254, 254, 254);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    font-family: 'Varela Round', sans-serif;
+}
+
+.navbar {
+    display: flex;
+    height: 85px;
+    justify-content: space-between; 
+    align-items: center;
+    background-color:rgba(81, 121, 163, 0.76);
+    color: black;
+    padding: 1rem;
+    box-shadow: #ccc;
+}
+
+.nav-right ul {
+    display: flex;
+    margin: 0; /* Remove margin for the ul */
+    padding: 0; /* Remove padding for the ul */
+}
+
+.nav-right li {
+    display: flex;
+    margin-left: 20px; 
+    align-items: center; 
+    color: black;
+    list-style-type: none;
+    font-size: 1.5rem;
+}
+
+.brand img {
+    width: 150px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.9rem;
+}
+.container,
+.MyAccount {
+  display: inline-flex;
+  margin: 10px; /* Adjust as needed */
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  background-color: #f7ba5d; /* Adjust color to match your theme */
+  border-radius: 5px;
+  margin-bottom: -400px;
+  margin-top: -150px;
+  margin-left: 170px;
+  font-weight: bold;
+  
+}
+
+.container:hover,
+.MyAccount:hover {
+  background-color:#f7ba5d; /* Darker shade on hover */
+}
+
+.Admin{
+  display: inline-flex;
+  margin: 10px; /* Adjust as needed */
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  background:#f7ba5d; /* Adjust color to match your theme */
+  border-radius: 5px;
+  margin-bottom: -400px;
+  margin-top: -150px;
+  margin-left: 170px;
+  font-weight: bold;
+}
+
+.container{
+    background:#f7ba5d;
+    color:black;
+    border-radius:7px; /* Rounded corners */
+    padding: 0 10px; /* Padding around the button text */
+    text-decoration: none; /* Remove underline */
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 50px;
+    border: 1px solid #ccc; /* Optional for visibility */
+    width: 150px;
+    margin-bottom: -400px;
+    margin-top: -150px;
+    margin-left: 170px;
+    
+
+}
+.container:hover{
+    background-color:rgb(250, 222, 43);
+    box-shadow:0 0 20px rgb(243, 236, 110); /* Glowing effect */
+
+    
+}
+.image-container {
+    position: relative;
+    width: 500px; /* Set the width of the container */
+}
+.photo{
+    
+    border: 2px solid #fffefe;
+    margin-top: 10px;
+    margin-left: 700px;
+
+}
+.gif{
+    position: absolute;
+    margin-top: 5px;
+    margin-left: 840px;
+}
+.paragraph{
+    position:absolute;
+    font-size:19px;
+    margin-left:120px;
+    margin-top:-190px;
+}
+.head3{
+    position:absolute;
+    font-size:30px;
+    margin-top: -320px;
+    margin-left: 120px;
+    font-weight: bold;
+    color:rgb(0, 0, 82);
+
+}
+.head1{
+    position:absolute;
+    font-size: 100px;
+    margin-top: -299px;
+    margin-left: 112px;
+    font-weight:1000;
+    color:rgb(0, 0, 82);
+
+}
+#why-us {
+    /* background-color: black; */
+    height: fit-content;
+    /* position: relative; */
+    /* top: 10; */
+    margin-left: 50px;
+    background-color: rgba(0, 121, 36, 0.233);
+
+  }
+  #why-us-hero{
+    padding-bottom: 100px;
+  }
+  #wu-top{
+    margin-bottom: 15px;
+    margin-top:600px;
+    margin-left: 150px;
+  }
+  #why-us-hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #why-us-wrapper {
+    width: 100%;
+  }
+  #wu-bottom {
+    display: flex;
+    margin-right:100px;
+    margin-left: 150px;
+    justify-content: space-between;
+  }
+  .wu-card {
+    width: 321px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom:200px;
+    margin-left: 100px;
+    border-radius: 10px;
+    /* border: 1px solid black; */
+    background-color: whitesmoke;
+    transition: 0.3s ease;
+    padding: 20px;
+  }
+  .wu-card:hover{
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.356);
+  }
+  .wu-card-top h4{
+    margin-left:100px;
+    margin-right:20px;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+  }
+  

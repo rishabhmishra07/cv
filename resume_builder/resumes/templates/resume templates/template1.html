@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Template1 Simple Resume</title>
+    <style>
+      * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 14px;
+    color: #777;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    font-size: 24px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    margin-bottom: 10px;
+}
+
+section p, section ul {
+    font-size: 16px;
+    color: #555;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.job h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.job p {
+    font-size: 14px;
+    color: #777;
+}
+
+.contact p {
+    font-size: 16px;
+    color: #555;
+}
+
+    </style>
+   
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <h1>{{ name }}</h1>
+        <p>Email: {{ data.email }} | Phone: {{ data.phone }} | Location: {{ data.city }}, {{ data.country }}</p>
+      </header>
+
+      <section class="summary">
+        <h2>Professional Summary</h2>
+        <p>{{ data.profession }} with {{ data.experience }} of experience.</p>
+      </section>
+
+      {% if data.recent_company and data.recent_duration %}
+        <section class="experience">
+          <h2>Work Experience</h2>
+          <div class="job">
+            <h3>{{ data.profession }}</h3>
+            <p>{{ data.recent_company }} | {{ data.recent_duration }}</p>
+          </div>
+        </section>
+      {% endif %}
+
+      <section class="education">
+        <h2>Education</h2>
+        <p>High School: {{ data.school_name }} | Graduation: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+        <p>College: {{ data.college_name }} | Graduation: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+      </section>
+
+      <section class="skills">
+        <h2>Skills</h2>
+        <ul>
+          {% for skill in skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+
+      {% if certifications %}
+        <section class="certifications">
+          <h2>Certifications</h2>
+          <ul>
+            {% for certification in certifications %}
+              <li>{{ certification }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+
+      {% if languages %}
+        <section class="languages">
+          <h2>Languages</h2>
+          <ul>
+            {% for language in languages %}
+              <li>{{ language }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+
+      <section class="contact">
+        <h2>Contact Information</h2>
+        <p>Email: {{ data.email }}</p>
+        <p>Phone: {{ data.phone }}</p>
+        {% if data.linkedin %}
+          <p>
+            LinkedIn: <a href="{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a>
+          </p>
+        {% endif %}
+        {% if data.github %}
+          <p>
+            GitHub: <a href="{{ data.github }}" target="_blank">{{ data.github }}</a>
+          </p>
+        {% endif %}
+      </section>
+    </div>
+  </body>
+</html>

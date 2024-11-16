@@ -1,0 +1,331 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Template 15</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+      }
+
+      body {
+        background-color: #f7f7f7;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 16px;
+        padding: 30px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 50px;
+        width: 80%;
+        max-width: 1200px;
+        background-color: #ffffff;
+        border-radius: 15px;
+        padding: 50px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Left column styling */
+      .left-column {
+        background-color: #f4f4f4;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .left-column h1 {
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .left-column p {
+        font-size: 1.2em;
+        color: #666;
+        margin-bottom: 25px;
+      }
+
+      .left-column h2 {
+        font-size: 1.4em;
+        color: #444;
+        margin-top: 30px;
+        font-weight: 600;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+
+      .left-column ul {
+        list-style: none;
+        padding-left: 0;
+        font-size: 1.1em;
+        color: #555;
+      }
+
+      .left-column ul li {
+        margin-bottom: 12px;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .left-column .contact a {
+        color: #555;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .left-column .contact a:hover {
+        color: #ff6f61;
+      }
+
+      /* Right column styling */
+      .right-column {
+        padding: 30px;
+        background-color: #fafafa;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .right-column h2 {
+        font-size: 1.6em;
+        color: #444;
+        margin-bottom: 20px;
+        font-weight: 700;
+        border-bottom: 2px solid #e0e0e0;
+        padding-bottom: 10px;
+      }
+
+      .right-column .job, .right-column .education {
+        margin-bottom: 30px;
+      }
+
+      .right-column .job h3, .right-column .education h3 {
+        font-size: 1.4em;
+        color: #444;
+        margin-bottom: 8px;
+        font-weight: 600;
+      }
+
+      .right-column .job p, .right-column .education p {
+        font-size: 1.2em;
+        color: #777;
+        margin-bottom: 8px;
+      }
+
+      .right-column .job span, .right-column .education span {
+        font-size: 1.2em;
+        color: #ff6f61;
+      }
+
+      .right-column .skills ul,
+      .right-column .certifications ul,
+      .right-column .languages ul {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .right-column .skills li,
+      .right-column .certifications li,
+      .right-column .languages li {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+        color: #666;
+        position: relative;
+      }
+
+      .right-column .skills li:before,
+      .right-column .certifications li:before,
+      .right-column .languages li:before {
+        content: '✓';
+        color: #ff6f61;
+        position: absolute;
+        left: 0;
+        font-size: 1.4em;
+        top: 0;
+      }
+
+      /* Section hover effect */
+      section {
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+      }
+
+      section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Print Button */
+      .print-button-container {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .print-button {
+        background-color: #007bff;
+        color: white;
+        font-size: 1.2em;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .print-button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Hide content when printing */
+      @media print {
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        .container {
+          display: block;
+          width: 100%;
+          padding: 0;
+        }
+
+        /* Hide the print button and other elements */
+        .print-button-container,
+        .container .print-button {
+          display: none;
+        }
+
+        /* Only show resume content */
+        .container .left-column,
+        .container .right-column {
+          display: block;
+          width: 100%;
+        }
+
+        /* Remove margins or padding that could affect the print layout */
+        .left-column, .right-column {
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+        }
+
+        /* Hide unnecessary elements */
+        * {
+          visibility: visible;
+        }
+
+        /* Ensure the resume content is centered */
+        .container {
+          margin: 0;
+          padding: 0;
+          background-color: transparent;
+        }
+      }
+
+      /* Responsive design */
+      @media screen and (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+
+        .left-column h1 {
+          font-size: 2.2em;
+        }
+
+        .right-column h2 {
+          font-size: 1.4em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Left Column -->
+      <div class="left-column">
+        <h1>{{ name }}</h1>
+        <p>{{ data.profession }}</p>
+        <div class="contact">
+          <p>Email: <a href="mailto:{{ data.email }}">{{ data.email }}</a></p>
+          <p>Phone: {{ data.phone }}</p>
+          <p>Location: {{ data.city }}, {{ data.country }}</p>
+        </div>
+        
+        <h2>Skills</h2>
+        <ul>
+          {% for skill in skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <h2>Professional Summary</h2>
+        <p>{{ data.profession }} with {{ data.experience }} years of experience in delivering innovative solutions, enhancing client satisfaction, and consistently achieving high performance.</p>
+
+        <div class="experience">
+          <h2>Work Experience</h2>
+          <div class="job">
+            <h3>{{ data.profession }} - {{ data.recent_company }}</h3>
+            <p>{{ data.recent_company }} | <span>{{ data.recent_duration }}</span></p>
+          </div>
+        </div>
+
+        <div class="education">
+          <h2>Education</h2>
+          <p>{{ data.school_name }} | {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+          <p>{{ data.college_name }} | {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+        </div>
+
+        <div class="skills">
+          <h2>Skills</h2>
+          <ul>
+            {% for skill in skills %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if certifications %}
+          <div class="certifications">
+            <h2>Certifications</h2>
+            <ul>
+              {% for certification in certifications %}
+                <li>{{ certification }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if languages %}
+          <div class="languages">
+            <h2>Languages</h2>
+            <ul>
+              {% for language in languages %}
+                <li>{{ language }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Print Button (Hidden During Print) -->
+    <div class="print-button-container">
+      <button class="print-button" onclick="window.print();">Print Resume</button>
+    </div>
+  </body>
+</html>

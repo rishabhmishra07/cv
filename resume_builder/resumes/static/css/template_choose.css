@@ -1,0 +1,58 @@
+/* General styling for the page */
+
+*{ margin: 0;
+    padding: 0;
+}
+   
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Container for each box and label */
+  .template-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 15px;
+  }
+  
+  /* Container for the boxes */
+  .template-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling each box */
+  .template-box {
+    width: 300px;
+    height: 350px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  /* Image styling */
+  .template-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Label styling directly below each box */
+  .template-label {
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+  }
+  

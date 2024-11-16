@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 4 Minimalist Resume </title>
+  <style>
+    /* General styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fafafa;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 750px;
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: #444;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    /* Section styling */
+    .section {
+      padding: 15px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    .section:last-child {
+      border-bottom: none;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      color: #444;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      position: relative;
+      padding-bottom: 5px;
+    }
+
+    .section h2::after {
+      content: "";
+      width: 50px;
+      height: 3px;
+      background-color: #444;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+
+    .summary, .skills, .contact p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #555;
+    }
+
+    /* Skill styling */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .skills-list li {
+      background-color: #f0f0f0;
+      color: #333;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    /* Experience & Education */
+    .experience-item, .education-item {
+      margin-bottom: 15px;
+    }
+
+    .experience-item h3, .education-item h3 {
+      font-size: 1.2rem;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .experience-item p, .education-item p {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Contact Links */
+    .contact-links a {
+      color: #1a73e8;
+      text-decoration: none;
+      font-weight: bold;
+      display: block;
+      margin-top: 5px;
+    }
+
+    .contact-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>{{ name }}</h1>
+      <p>{{ data.profession }}</p>
+    </header>
+
+    <div class="section summary">
+      <h2>Summary</h2>
+      <p>{{ data.profession }} with {{ data.experience }} of experience in {{ data.industry }}.</p>
+    </div>
+
+    <div class="section experience">
+      <h2>Experience</h2>
+      <div class="experience-item">
+        <h3>{{ data.profession }} at {{ data.recent_company }}</h3>
+        <p>Duration: {{ data.recent_duration }}</p>
+        <p>Responsibilities: {{ data.responsibilities }}</p>
+      </div>
+    </div>
+
+    <div class="section education">
+      <h2>Education</h2>
+      <div class="education-item">
+        <h3>{{ data.school_name }}</h3>
+        <p>Graduation Year: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+      </div>
+      <div class="education-item">
+        <h3>{{ data.college_name }}</h3>
+        <p>Graduation Year: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+      </div>
+    </div>
+
+    <div class="section skills">
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        {% for skill in skills %}
+          <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    {% if certifications %}
+      <div class="section certifications">
+        <h2>Certifications</h2>
+        <ul>
+          {% for certification in certifications %}
+            <li>{{ certification }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    {% if languages %}
+      <div class="section languages">
+        <h2>Languages</h2>
+        <ul>
+          {% for language in languages %}
+            <li>{{ language }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+
+    <div class="section contact">
+      <h2>Contact</h2>
+      <p>Email: {{ data.email }}</p>
+      <p>Phone: {{ data.phone }}</p>
+      {% if data.linkedin %}
+        <div class="contact-links">
+          <a href="{{ data.linkedin }}" target="_blank">LinkedIn: {{ data.linkedin }}</a>
+        </div>
+      {% endif %}
+      {% if data.github %}
+        <div class="contact-links">
+          <a href="{{ data.github }}" target="_blank">GitHub: {{ data.github }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

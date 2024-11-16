@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 2 Stylish Resume </title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f2f5f8;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+      color: #333;
+    }
+
+    .container {
+      width: 900px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      padding: 0;
+      color: #444;
+    }
+
+    /* Sidebar styling */
+    .sidebar {
+      background-color: #2d4f6c;
+      width: 280px;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .sidebar h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .sidebar p {
+      font-size: 1.2rem;
+      font-weight: 300;
+      margin-bottom: 30px;
+    }
+
+    .sidebar section {
+      margin-bottom: 20px;
+    }
+
+    .sidebar section h3 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    .sidebar ul li {
+      margin: 5px 0;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    /* Main content styling */
+    .content {
+      padding: 40px;
+      width: 100%;
+    }
+
+    .content section {
+      margin-bottom: 30px;
+    }
+
+    .content h2 {
+      font-size: 1.8rem;
+      color: #2d4f6c;
+      border-bottom: 2px solid #f0f0f0;
+      padding-bottom: 5px;
+      margin-bottom: 15px;
+    }
+
+    /* Experience and Education styling */
+    .job, .education-item {
+      margin-bottom: 20px;
+    }
+
+    .job h3, .education-item h3 {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .job p, .education-item p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 8px;
+    }
+
+    /* Skills styling */
+    .skills ul {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0;
+    }
+
+    .skills ul li {
+      background-color: #f2f5f8;
+      color: #333;
+      padding: 8px 14px;
+      margin: 5px;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* Links */
+    a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar, .content {
+        width: 100%;
+      }
+
+      .sidebar {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <h1>{{ name }}</h1>
+      <p>{{ data.profession }}</p>
+
+      <section>
+        <h3>Contact</h3>
+        <p>Email: {{ data.email }}</p>
+        <p>Phone: {{ data.phone }}</p>
+        {% if data.linkedin %}
+          <p>LinkedIn: <a href="{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a></p>
+        {% endif %}
+        {% if data.github %}
+          <p>GitHub: <a href="{{ data.github }}" target="_blank">{{ data.github }}</a></p>
+        {% endif %}
+      </section>
+
+      <section>
+        <h3>Skills</h3>
+        <ul>
+          {% for skill in skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </section>
+    </aside>
+
+    <main class="content">
+      <section class="summary">
+        <h2>Professional Summary</h2>
+        <p>{{ data.profession }} with {{ data.experience }} of experience in {{ data.industry }}.</p>
+      </section>
+
+      {% if data.recent_company and data.recent_duration %}
+        <section class="experience">
+          <h2>Work Experience</h2>
+          <div class="job">
+            <h3>{{ data.profession }} - {{ data.recent_company }}</h3>
+            <p>{{ data.recent_duration }}</p>
+            <p>Responsibilities include {{ data.responsibilities }}.</p>
+          </div>
+        </section>
+      {% endif %}
+
+      <section class="education">
+        <h2>Education</h2>
+        <div class="education-item">
+          <h3>High School - {{ data.school_name }}</h3>
+          <p>Graduation Year: {{ data.school_passing_year }}, Marks: {{ data.school_marks }}%</p>
+        </div>
+        <div class="education-item">
+          <h3>College - {{ data.college_name }}</h3>
+          <p>Graduation Year: {{ data.college_passing_year }}, Marks: {{ data.college_marks }}%</p>
+        </div>
+      </section>
+
+      {% if certifications %}
+        <section class="certifications">
+          <h2>Certifications</h2>
+          <ul>
+            {% for certification in certifications %}
+              <li>{{ certification }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+
+      {% if languages %}
+        <section class="languages">
+          <h2>Languages</h2>
+          <ul>
+            {% for language in languages %}
+              <li>{{ language }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+      {% endif %}
+    </main>
+  </div>
+</body>
+</html>

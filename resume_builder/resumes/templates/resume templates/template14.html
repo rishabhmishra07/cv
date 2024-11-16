@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Template 14</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Arial', sans-serif;
+      }
+
+      body {
+        background: #f9f9f9;
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-size: 16px;
+        padding: 20px;
+      }
+
+      .container {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 20px;
+        max-width: 900px;
+        background-color: white;
+        border-radius: 12px;
+        padding: 30px;
+        box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Left column */
+      .left-column {
+        background-color: #f4f4f4;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .left-column h1 {
+        font-size: 2.2em;
+        color: #555;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+
+      .left-column p {
+        font-size: 1.1em;
+        color: #777;
+        margin-bottom: 12px;
+      }
+
+      .left-column h2 {
+        font-size: 1.4em;
+        color: #4e4e4e;
+        margin-top: 30px;
+        font-weight: 600;
+      }
+
+      .left-column ul {
+        list-style: none;
+        margin-top: 10px;
+      }
+
+      .left-column ul li {
+        font-size: 1.1em;
+        margin-bottom: 12px;
+        color: #777;
+      }
+
+      .left-column .contact a {
+        color: #4e4e4e;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .left-column .contact a:hover {
+        color: #ffa500;
+      }
+
+      /* Right column */
+      .right-column {
+        padding: 20px;
+      }
+
+      .right-column h2 {
+        font-size: 1.7em;
+        color: #333;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      .right-column .job, .right-column .education {
+        margin-bottom: 20px;
+        padding-left: 20px;
+        border-left: 4px solid #ffa500;
+        margin-top: 15px;
+      }
+
+      .right-column .job h3, .right-column .education h3 {
+        font-size: 1.4em;
+        color: #555;
+        margin-bottom: 8px;
+      }
+
+      .right-column .job p, .right-column .education p {
+        font-size: 1.1em;
+        color: #777;
+        margin-bottom: 8px;
+      }
+
+      .right-column .job span, .right-column .education span {
+        font-size: 1em;
+        color: #ffa500;
+      }
+
+      .right-column .skills ul,
+      .right-column .certifications ul,
+      .right-column .languages ul {
+        list-style: none;
+        margin-top: 10px;
+      }
+
+      .right-column .skills li,
+      .right-column .certifications li,
+      .right-column .languages li {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+        color: #777;
+        padding-left: 25px;
+        position: relative;
+      }
+
+      .right-column .skills li:before,
+      .right-column .certifications li:before,
+      .right-column .languages li:before {
+        content: '✓';
+        color: #ffa500;
+        position: absolute;
+        left: 0;
+        font-size: 1.3em;
+        top: 0;
+      }
+
+      /* Section hover effect */
+      section {
+        transition: transform 0.3s ease-in-out;
+      }
+
+      section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Responsive design */
+      @media screen and (max-width: 768px) {
+        .container {
+          grid-template-columns: 1fr;
+          padding: 15px;
+        }
+
+        .left-column h1 {
+          font-size: 1.8em;
+        }
+
+        .right-column h2 {
+          font-size: 1.4em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Left Column -->
+      <div class="left-column">
+        <h1>{{ name }}</h1>
+        <p>{{ data.profession }}</p>
+        <div class="contact">
+          <p>Email: <a href="mailto:{{ data.email }}">{{ data.email }}</a></p>
+          <p>Phone: {{ data.phone }}</p>
+          <p>Location: {{ data.city }}, {{ data.country }}</p>
+        </div>
+        
+        <h2>Skills</h2>
+        <ul>
+          {% for skill in skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <h2>Professional Summary</h2>
+        <p>{{ data.profession }} with {{ data.experience }} of experience, skilled in various technologies and passionate about delivering impactful work.</p>
+
+        <div class="experience">
+          <h2>Work Experience</h2>
+          <div class="job">
+            <h3>{{ data.profession }} - {{ data.recent_company }}</h3>
+            <p>{{ data.recent_company }} | <span>{{ data.recent_duration }}</span></p>
+          </div>
+        </div>
+
+        <div class="education">
+          <h2>Education</h2>
+          <p>{{ data.school_name }} | {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+          <p>{{ data.college_name }} | {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+        </div>
+
+        <div class="skills">
+          <h2>Skills</h2>
+          <ul>
+            {% for skill in skills %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        {% if certifications %}
+          <div class="certifications">
+            <h2>Certifications</h2>
+            <ul>
+              {% for certification in certifications %}
+                <li>{{ certification }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        {% if languages %}
+          <div class="languages">
+            <h2>Languages</h2>
+            <ul>
+              {% for language in languages %}
+                <li>{{ language }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

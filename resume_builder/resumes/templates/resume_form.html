@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Builder Form</title>
+    <link rel="stylesheet" href="{% static 'css/resume_style.css' %}" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Resume Form</h1>
+      <form id="resume-form" method="post">
+        {% csrf_token %}
+        <!-- Personal Information -->
+        <div class="row">
+          <div class="form-group">
+            <label for="first-name">{{ form.first_name.label }} <span class="required">*</span></label>
+            {{ form.first_name.errors }}
+            {{ form.first_name }}
+          </div>
+          <div class="form-group">
+            {{ form.surname.label_tag }}
+            {{ form.surname.errors }}
+            {{ form.surname }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="id_profession">{{ form.profession.label }} <span class="required">*</span></label>
+            {{ form.profession.errors }}
+            {{ form.profession }}
+          </div>
+          <div class="form-group">
+            <label for="city">{{ form.city.label }} <span class="required">*</span></label>
+            {{ form.city.errors }}
+            {{ form.city }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="country">{{ form.country.label }}<span class="required">*</span></label>
+            {{ form.country.errors }}
+            {{ form.country }}
+          </div>
+          <div class="form-group">
+            <label for="pincode">{{ form.pincode.label }}<span class="required">*</span></label>
+            {{ form.pincode.errors }}
+            {{ form.pincode }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="phone">{{ form.phone.label }}<span class="required">*</span></label>
+            {{ form.phone.errors }}
+            {{ form.phone }}
+          </div>
+          <div class="form-group">
+            <label for="email">{{ form.email.label }}<span class="required">*</span></label>
+            {{ form.email.errors }}
+            {{ form.email }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            {{ form.linkedin.label_tag }}
+            {{ form.linkedin.errors }}
+            {{ form.linkedin }}
+          </div>
+          <div class="form-group">
+            {{ form.github.label_tag }}
+            {{ form.github.errors }}
+            {{ form.github }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            {{ form.experience.label_tag }}
+            {{ form.experience.errors }}
+            {{ form.experience }}
+          </div>
+        </div>
+
+        <div id="experience-details" class="row">
+          <div class="form-group">
+            {{ form.recent_company.label_tag }}
+            {{ form.recent_company.errors }}
+            {{ form.recent_company }}
+          </div>
+          <div class="form-group">
+            {{ form.recent_duration.label_tag }}
+            {{ form.recent_duration.errors }}
+            {{ form.recent_duration }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="school-name">{{ form.school_name.label }}<span class="required">*</span></label>
+            {{ form.school_name.errors }}
+            {{ form.school_name }}
+          </div>
+          <div class="form-group">
+            <label for="school-marks">{{ form.school_marks.label }}<span class="required">*</span></label>
+            {{ form.school_marks.errors }}
+            {{ form.school_marks }}
+          </div>
+          <div class="form-group">
+            <label for="school-year">{{ form.school_passing_year.label }} <span class="required">*</span></label>
+            {{ form.school_passing_year.errors }}
+            {{ form.school_passing_year }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <label for="college-name">{{ form.college_name.label }}<span class="required">*</span></label>
+            {{ form.college_name.errors }}
+            {{ form.college_name }}
+          </div>
+          <div class="form-group">
+            <label for="college-marks">{{ form.college_marks.label }} <span class="required">*</span></label>
+            {{ form.college_marks.errors }}
+            {{ form.college_marks }}
+          </div>
+          <div class="form-group">
+            <label for="college-year">{{ form.college_passing_year.label }}<span class="required">*</span></label>
+            {{ form.college_passing_year.errors }}
+            {{ form.college_passing_year }}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            {{ form.skills.label_tag }}
+            <div id="skills-container">
+              {{ form.skills.errors }}
+              {{ form.skills }}
+              <button type="button" class="add-btn" onclick="addField('skills')">Add Skill</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            {{ form.certifications.label_tag }}
+            {{ form.certifications.errors }}
+            <div id="certifications-container">
+              {{ form.certifications }}
+              <button type="button" class="add-btn" onclick="addField('certifications')">Add Certification</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            {{ form.languages.label_tag }}
+            <div id="languages-container">
+              {{ form.languages.errors }}
+              {{ form.languages }}
+              <button type="button" class="add-btn" onclick="addField('languages')">Add Language</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            {{ form.hobbies.label_tag }}
+            <div id="hobbies-container">
+              {{ form.hobbies.errors }}
+              {{ form.hobbies }}
+              <button type="button" class="add-btn" onclick="addField('hobbies')">Add Hobby</button>
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-btn" href="template_choose.html">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      // JavaScript to handle the addition of new fields
+      function addField(section) {
+        const container = document.getElementById(`${section}-container`)
+        const input = document.createElement('input')
+        input.type = 'text'
+        input.name = `${section}`
+        input.className = section.slice(0, -1) // remove the trailing 's'
+        container.insertBefore(input, container.querySelector('.add-btn'))
+      }
+      
+      // JavaScript to show/hide experience details based on the dropdown selection
+      document.getElementById('experience').addEventListener('change', function () {
+        const value = this.value
+        const details = document.getElementById('experience-details')
+        if (value === 'fresher') {
+          details.style.display = 'none'
+          document.getElementById('recent-company').value = ''
+          document.getElementById('recent-duration').value = ''
+        } else {
+          details.style.display = 'flex'
+        }
+      })
+
+      
+    </script>
+  </body>
+</html>

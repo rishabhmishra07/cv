@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume Templates</title>
+  <style>
+    /* General styling for the page */
+    body {
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
+    }
+
+    /* Container for each box and label */
+    .template-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 15px;
+    }
+
+    /* Container for the boxes */
+    .template-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* Styling each box */
+    .template-box {
+      width: 250px;
+      height: 350px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* Hover effects */
+    .template-box:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Image styling */
+    .template-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Label styling directly below each box */
+    .template-label {
+      font-weight: bold;
+      margin-top: 10px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Choose Your Resume Template</h1>
+
+  <!-- Container for template boxes and labels -->
+  <div class="template-container">
+    <!-- 15 Template Items -->
+    <div class="template-item" data-template="template1">
+      <div class="template-box">
+        <img src="your-image1.jpg" alt="Resume Template 1" />
+      </div>
+      <div class="template-label">1. Simple Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template2">
+      <div class="template-box">
+        <img src="your-image2.jpg" alt="Resume Template 2" />
+      </div>
+      <div class="template-label">2. Stylish Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template3">
+      <div class="template-box">
+        <img src="your-image3.jpg" alt="Resume Template 3" />
+      </div>
+      <div class="template-label">3. Professional Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template4">
+      <div class="template-box">
+        <img src="your-image4.jpg" alt="Resume Template 4" />
+      </div>
+      <div class="template-label">4. Modern Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template5">
+      <div class="template-box">
+        <img src="your-image5.jpg" alt="Resume Template 5" />
+      </div>
+      <div class="template-label">5. Minimalist Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template6">
+      <div class="template-box">
+        <img src="your-image6.jpg" alt="Resume Template 6" />
+      </div>
+      <div class="template-label">6. Full Width Professional Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template7">
+      <div class="template-box">
+        <img src="your-image7.jpg" alt="Resume Template 7" />
+      </div>
+      <div class="template-label">7. Modern Horizontal Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template8">
+      <div class="template-box">
+        <img src="your-image8.jpg" alt="Resume Template 8" />
+      </div>
+      <div class="template-label">8. Professional Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template9">
+      <div class="template-box">
+        <img src="your-image9.jpg" alt="Resume Template 9" />
+      </div>
+      <div class="template-label">9. Minimalist Modern Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template10">
+      <div class="template-box">
+        <img src="your-image10.jpg" alt="Resume Template 10" />
+      </div>
+      <div class="template-label">10. Vibrant Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template11">
+      <div class="template-box">
+        <img src="your-image11.jpg" alt="Resume Template 11" />
+      </div>
+      <div class="template-label">11. Minimal Professional Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template12">
+      <div class="template-box">
+        <img src="your-image12.jpg" alt="Resume Template 12" />
+      </div>
+      <div class="template-label">12. Elegant Minimal Resume</div>
+    </div>
+
+    <div class="template-item" data-template="template13">
+      <div class="template-box">
+        <img src="your-image13.jpg" alt="Resume Template 13" />
+      </div>
+      <div class="template-label">13. Resume Template 13</div>
+    </div>
+
+    <div class="template-item" data-template="template14">
+      <div class="template-box">
+        <img src="your-image14.jpg" alt="Resume Template 14" />
+      </div>
+      <div class="template-label">14. Resume Template 14</div>
+    </div>
+
+    <div class="template-item" data-template="template15">
+      <div class="template-box">
+        <img src="your-image15.jpg" alt="Resume Template 15" />
+      </div>
+      <div class="template-label">15. Resume Template 15</div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+<script>
+  // Add click event listener to each template-item
+  document.querySelectorAll('.template-item').forEach(item => {
+  item.addEventListener('click', () => {
+    const template = item.getAttribute('data-template');
+    // Updated URL
+    window.location.href = `/choose_template/?template=${template}`;
+  });
+});
+
+</script>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 9 Minimalist Modern Resume </title>
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: #333;
+      background-color: #f2f4f7;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .resume-container {
+      max-width: 1000px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      background: #ffffff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    /* Sidebar Styling */
+    .sidebar {
+      background-color: #282c34;
+      color: #ffffff;
+      padding: 30px 20px;
+      border-radius: 8px 0 0 8px;
+    }
+
+    .sidebar h2 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      color: #61dafb;
+    }
+
+    .sidebar p, .sidebar ul {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .contact-info, .skills, .languages {
+      margin-bottom: 20px;
+    }
+
+    .skills ul, .languages ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skills ul li, .languages ul li {
+      background-color: #444b54;
+      color: #fff;
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    /* Main Content Styling */
+    .main-content {
+      padding: 40px;
+    }
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 36px;
+      color: #282c34;
+    }
+
+    .header p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    .section {
+      margin-bottom: 20px;
+    }
+
+    .section h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #61dafb;
+    }
+
+    .section p, .section ul {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+    }
+
+    .experience, .education {
+      border-left: 3px solid #61dafb;
+      padding-left: 15px;
+    }
+
+    /* Footer Styling */
+    .footer {
+      text-align: center;
+      padding-top: 15px;
+      font-size: 14px;
+      color: #777;
+      border-top: 1px solid #ddd;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .resume-container {
+        grid-template-columns: 1fr;
+      }
+
+      .sidebar {
+        border-radius: 8px 8px 0 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="resume-container">
+    <!-- Sidebar: Personal Information and Skills -->
+    <aside class="sidebar">
+      <div class="contact-info">
+        <h2>Contact</h2>
+        <p>Email: {{ data.email }}</p>
+        <p>Phone: {{ data.phone }}</p>
+        {% if data.linkedin %}
+          <p>LinkedIn: <a href="{{ data.linkedin }}" target="_blank" style="color: #61dafb;">{{ data.linkedin }}</a></p>
+        {% endif %}
+        {% if data.github %}
+          <p>GitHub: <a href="{{ data.github }}" target="_blank" style="color: #61dafb;">{{ data.github }}</a></p>
+        {% endif %}
+      </div>
+      
+      <div class="skills">
+        <h2>Skills</h2>
+        <ul>
+          {% for skill in skills %}
+            <li>{{ skill }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      
+      <div class="languages">
+        <h2>Languages</h2>
+        <ul>
+          {% for language in languages %}
+            <li>{{ language }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <header class="header">
+        <h1>{{ name }}</h1>
+        <p>{{ data.profession }} with {{ data.experience }} of experience</p>
+      </header>
+
+      <div class="section summary">
+        <h3>Professional Summary</h3>
+        <p>{{ data.summary }}</p>
+      </div>
+
+      <div class="section experience">
+        <h3>Work Experience</h3>
+        <p><strong>{{ data.profession }} at {{ data.recent_company }}</strong> - {{ data.recent_duration }}</p>
+        <p>{{ data.responsibilities }}</p>
+      </div>
+
+      <div class="section education">
+        <h3>Education</h3>
+        <p><strong>{{ data.school_name }}</strong> - Graduation: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+        <p><strong>{{ data.college_name }}</strong> - Graduation: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

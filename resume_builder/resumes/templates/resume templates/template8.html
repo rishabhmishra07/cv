@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Template 5 Horizontal Resume </title>
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f3f3f3;
+      color: #444;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background-color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      padding: 30px;
+      gap: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+    }
+
+    /* Header Section */
+    .header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    .header p {
+      font-size: 1rem;
+      color: #777;
+    }
+
+    /* Professional Summary Section */
+    .summary {
+      width: 100%;
+      padding: 20px;
+      border-top: 2px solid #f0f0f0;
+      text-align: center;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    /* Horizontal Info Sections */
+    .content-wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      width: 100%;
+    }
+
+    .left-section, .right-section {
+      flex: 1;
+      padding: 20px;
+    }
+
+    /* Experience and Education Styling */
+    .experience, .education, .skills, .contact {
+      margin-bottom: 20px;
+    }
+
+    .experience h2, .education h2, .skills h2, .contact h2 {
+      font-size: 1.4rem;
+      color: #333;
+      margin-bottom: 10px;
+      border-bottom: 2px solid #3a3a3a;
+      padding-bottom: 5px;
+    }
+
+    .experience h3, .education h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #3a3a3a;
+    }
+
+    .experience p, .education p, .skills p, .contact p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Skills Section */
+    .skills ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .skills ul li {
+      padding: 5px 0;
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* Contact Section */
+    .contact p {
+      font-size: 1rem;
+      color: #444;
+    }
+
+    /* Responsive Styling */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>{{ name }}</h1>
+      <p>{{ data.profession }} with {{ data.experience }} of experience in {{ data.industry }}</p>
+    </header>
+
+    <!-- Summary Section -->
+    <section class="summary">
+      <p>{{ data.summary }}</p>
+    </section>
+
+    <!-- Horizontal Layout for Content -->
+    <div class="content-wrapper">
+      <!-- Left Section -->
+      <div class="left-section">
+        <!-- Experience -->
+        <section class="experience">
+          <h2>Work Experience</h2>
+          <h3>{{ data.profession }} at {{ data.recent_company }}</h3>
+          <p>{{ data.recent_duration }}</p>
+          <p>{{ data.responsibilities }}</p>
+        </section>
+
+        <!-- Education -->
+        <section class="education">
+          <h2>Education</h2>
+          <h3>{{ data.school_name }}</h3>
+          <p>Graduation Year: {{ data.school_passing_year }} | Marks: {{ data.school_marks }}%</p>
+          <h3>{{ data.college_name }}</h3>
+          <p>Graduation Year: {{ data.college_passing_year }} | Marks: {{ data.college_marks }}%</p>
+        </section>
+      </div>
+
+      <!-- Right Section -->
+      <div class="right-section">
+        <!-- Skills -->
+        <section class="skills">
+          <h2>Skills</h2>
+          <ul>
+            {% for skill in skills %}
+              <li>{{ skill }}</li>
+            {% endfor %}
+          </ul>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="contact">
+          <h2>Contact Information</h2>
+          <p>Email: {{ data.email }}</p>
+          <p>Phone: {{ data.phone }}</p>
+          {% if data.linkedin %}
+            <p>LinkedIn: <a href="{{ data.linkedin }}" target="_blank">{{ data.linkedin }}</a></p>
+          {% endif %}
+          {% if data.github %}
+            <p>GitHub: <a href="{{ data.github }}" target="_blank">{{ data.github }}</a></p>
+          {% endif %}
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
